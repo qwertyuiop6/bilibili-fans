@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.keyCode === 13) {
       checkInput(search);
     }
-    // error('');
   };
   button.onclick = () => {
     checkInput(search);
@@ -85,6 +84,7 @@ function initFans(res) {
   const upInfo = document.createElement('tr');
   upInfo.id = `up-${uid}`;
   upInfo.classList.add('animated', 'fadeIn');
+
   const upname = document.createElement('td');
   const upnamea = document.createElement('a');
   Object.assign(upnamea, {
@@ -92,32 +92,40 @@ function initFans(res) {
     href: `https://space.bilibili.com/${uid}`,
     target: '_blank',
   });
-  // upnamea.innerText = upName;
-  // upnamea.href = `https://space.bilibili.com/${uid}`;
-  // upnamea.target = '_blank';
   upname.appendChild(upnamea);
+
   const upfans = document.createElement('td');
-  upfans.innerText = fans;
-  //   upfans.classList.add('odometer', 'odometer-auto-theme');
+  const upfanss = document.createElement('div');
+  upfanss.id = `od-${uid}`;
+  // upfanss.innerText = fans;
+  od = new Odometer({
+    el: upfanss,
+    value: fans,
+    format: '(,dddd).dd',
+    theme: 'default',
+  });
+  upfans.appendChild(upfanss);
   //   const avatar = document.createElement('img');
   //   avatar.src = face;
   //   upname.appendChild(avatar);
+
   upInfo.appendChild(upname);
   upInfo.appendChild(upfans);
   list.appendChild(upInfo);
+
   list.parentNode.style.visibility = 'visible';
 
   setInterval(
     () => {
       jsonpReq(userApi + uid, 'updateFans');
     },
-    fans > 5e5 ? 3e3 : 1e4,
+    fans > 5e5 ? 4e3 : 1e4,
   );
 }
 
 function updateFans(res) {
   const { name: upName, mid: uid, fans } = res;
-  const upInfo = document.getElementById(`up-${uid}`);
-  upInfo.getElementsByTagName('td')[1].innerText = fans;
+  const upFans = document.getElementById(`od-${uid}`);
+  upFans.innerText = fans;
   console.log('update', upName);
 }

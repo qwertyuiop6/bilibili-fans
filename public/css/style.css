@@ -1,0 +1,74 @@
+body {
+    font-family: Verdana, "Segoe UI", Tahoma, Geneva, sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  a,
+  td {
+    color: #1390ff;
+    font-weight: bold;
+    transition: 0.2s;
+  }
+
+  a:hover {
+    color: #ff2f97;
+    text-decoration: none;
+  }
+
+  td:hover {
+    color: red;
+  }
+
+  main {
+    text-align: center;
+    width: 75vw;
+    overflow: hidden;
+    max-width: 30rem;
+  }
+
+  .search-text {
+    display: flex;
+    margin-bottom: 0.6rem;
+  }
+
+  #search {
+    margin-right: -0.4rem;
+  }
+
+  input.error::-webkit-input-placeholder {
+    color: #ff32a2;
+    font-weight: bold;
+  }
+
+  table {
+    width: 98%;
+    font-size: 1.05rem;
+  }
+
+  i {
+    position: absolute;
+  }
+
+  .logo {
+    width: 40%;
+    position: relative;
+    left: -2%;
+  }
+
+  .ball {
+    position: relative;
+    top: 44px;
+    right: -4%;
+  }
+
+  @media(max-width:500px) {
+    .ball {
+      top: 30px;
+    }
+  }
