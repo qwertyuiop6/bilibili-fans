@@ -7,7 +7,9 @@
 打开localhost:2333 即可访问
 
 ### How works?
-前端CSS UI风格使用这个: [NES.css](https://github.com/nostalgic-css/NES.css) 
+前端CSS UI风格使用这个: [NES.css](https://github.com/nostalgic-css/NES.css)
+
+数字滚动效果: [Odometer](https://github.com/HubSpot/odometer)
 
 键盘触发事件-->添加jsonp定时轮询
 
